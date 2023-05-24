@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 
     var viewModel: TableViewModelProtocol!
     var dataSource: TableViewDataSource!
-    var delegate: TableViewDelegate!
+    var delegate: UITableViewDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
