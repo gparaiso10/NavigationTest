@@ -83,16 +83,22 @@ class SingleItemViewController: UIViewController, SingleItemViewControllerProtoc
 
         // colorsTable constraints
         colorsTable.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: margin).isActive = true
-        colorsTable.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        colorsTable.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin).isActive = true
+        colorsTable.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin).isActive = true
         
         // sizesTable constraints
         sizesTable.topAnchor.constraint(equalTo: colorsTable.bottomAnchor, constant: margin).isActive = true
-        sizesTable.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        sizesTable.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin).isActive = true
+        sizesTable.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin).isActive = true
         
         // descriptionLabel constraints
         descriptionLabel.topAnchor.constraint(equalTo: sizesTable.bottomAnchor, constant: margin).isActive = true
         descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin).isActive = true
         descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin).isActive = true
+        
+        descriptionLabel.numberOfLines = 0
+        sizesTable.numberOfLines = 0
+        colorsTable.numberOfLines = 0
     }
     
     func reloadData() {
