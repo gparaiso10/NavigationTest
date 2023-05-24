@@ -7,7 +7,13 @@
 
 import UIKit
 
-class TableViewCoordinator: UIViewController {
+protocol TableViewCoordinatorProtocol {
+    var viewController: UIViewController! {get set}
+    var singleItemViewController: UIViewController! {get set}
+    func pushSingleItemView()
+}
+
+class TableViewCoordinator: UIViewController, TableViewCoordinatorProtocol {
     
     weak var viewController: UIViewController!
     var singleItemViewController: UIViewController!

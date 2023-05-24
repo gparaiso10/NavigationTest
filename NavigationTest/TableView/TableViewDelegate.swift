@@ -9,8 +9,8 @@ import UIKit
 
 class TableViewDelegate: NSObject, UITableViewDelegate{
     
-    var viewModel: TableViewModel!
-    var viewCoordinator: TableViewCoordinator!
+    var viewModel: TableViewModelProtocol!
+    var viewCoordinator: TableViewCoordinatorProtocol!
     var singleItemViewModel: SingleItemViewModelProtocol!
     
     
