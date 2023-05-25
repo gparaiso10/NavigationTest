@@ -20,9 +20,22 @@ class TableViewDataSource: NSObject, UITableViewDataSource{
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            
+            let cellViewModel = viewModel.cells[indexPath.row]
+            var identifier: String
+                    
+            switch cellViewModel {
+            case is CellViewModel:
+                identifier = "cell"
+                let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ExampleCell
+                cell.configure(model: cellViewModel)
+                
+                return cell
 
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ExampleCell
-            cell.configure(viewModel: viewModel.cells[indexPath.row])
-            return cell
+            default:
+                return UITableViewCell()
+            }
+
+            //return cell
         }
 }

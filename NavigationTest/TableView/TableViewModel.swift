@@ -9,7 +9,7 @@ import Foundation
 
 protocol TableViewModelProtocol {
     var reloadData: () -> Void { get set }
-    var cells: [CellViewModel] { get set }
+    var cells: [ExampleCellModelProtocol] { get set }
     func bind() -> Void
     func presentDetails(id: Int)
 }
@@ -25,7 +25,7 @@ class TableViewModel: TableViewModelProtocol{
     
     var reloadData: () -> Void = { }
     
-    var cells: [CellViewModel] = []
+    var cells: [ExampleCellModelProtocol] = []
     
     func bind(){
         

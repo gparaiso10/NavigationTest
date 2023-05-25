@@ -7,7 +7,15 @@
 
 import Foundation
 
-class CellViewModel{
+protocol CellModelProtocol {
+    
+}
+
+protocol ExampleCellModelProtocol: CellModelProtocol {
+    var item: Item { get set }
+}
+
+class CellViewModel: ExampleCellModelProtocol{
     var item: Item
     
     init(item: Item) {

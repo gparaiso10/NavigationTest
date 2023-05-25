@@ -5,11 +5,10 @@
 //  Created by Paraíso, Gustavo Alexandre on 22/05/2023.
 //
 
-import UIKit
+import Foundation
 
 protocol SingleItemViewModelProtocol {
     var itemSingular: ItemSingular? {get set}
-    //func bindSingleItem(index: Int)
     var reloadData: () -> Void {get set}
 }
 
