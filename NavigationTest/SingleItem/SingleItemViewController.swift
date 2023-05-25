@@ -7,22 +7,22 @@
 
 import UIKit
 
-protocol SingleItemViewControllerProtocol{
-    var idLabel:UILabel { get }
-    var genderLabel:UILabel { get }
-    var nameLabel:UILabel { get }
-    var priceLabel:UILabel { get }
-    var descriptionLabel:UILabel { get }
-    var colorsTable: UILabel { get }
-    var sizesTable: UILabel { get }
-    
-    func reloadData()
-    
-    var vm: SingleItemViewModelProtocol? { get set }
+//protocol SingleItemViewControllerProtocol{
+//    var idLabel:UILabel { get }
+//    var genderLabel:UILabel { get }
+//    var nameLabel:UILabel { get }
+//    var priceLabel:UILabel { get }
+//    var descriptionLabel:UILabel { get }
+//    var colorsTable: UILabel { get }
+//    var sizesTable: UILabel { get }
+//    
+//    func reloadData()
+//    
+//    var vm: SingleItemViewModelProtocol? { get set }
+//
+//}
 
-}
-
-class SingleItemViewController: UIViewController, SingleItemViewControllerProtocol {
+class SingleItemViewController: UIViewController {
     let idLabel = UILabel(frame: .zero)
     let genderLabel = UILabel(frame: .zero)
     let nameLabel = UILabel(frame: .zero)

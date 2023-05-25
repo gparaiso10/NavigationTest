@@ -46,10 +46,10 @@ class ExampleCell: UITableViewCell{
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(model: Item){
-        label.text = model.name
-        price.text = "$\(String(model.price))"
-        image.load(url: model.image)
+    func configure(viewModel: CellViewModel){
+        label.text = viewModel.item.name
+        price.text = "$\(viewModel.item.price)"
+        image.load(url: viewModel.item.image)
     }
 }
 

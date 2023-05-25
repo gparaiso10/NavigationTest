@@ -5,18 +5,27 @@
 //  Created by Paraíso, Gustavo Alexandre on 18/05/2023.
 //
 
-import UIKit
+import Foundation
 
 protocol TableViewModelProtocol {
     var reloadData: () -> Void { get set }
-    var itemsArray: [Item] { get }
+    var cells: [CellViewModel] { get set }
     func bind() -> Void
+    func presentDetails(id: Int)
 }
 
 class TableViewModel: TableViewModelProtocol{
+    
+    var coordinator: TableViewCoordinatorProtocol!
+    
+    func presentDetails(id: Int) {
+        bind()
+        coordinator.pushSingleItemView(id: id)
+    }
+    
     var reloadData: () -> Void = { }
     
-    var itemsArray: [Item] = []
+    var cells: [CellViewModel] = []
     
     func bind(){
         
@@ -28,7 +37,9 @@ class TableViewModel: TableViewModelProtocol{
         
         network.searchNetwork(search: "") {[weak self] products in
             if let products = products {
-                self?.itemsArray = products
+                self?.cells = products.map{ product in
+                    CellViewModel(item: product)
+                }
                 self?.reloadData()
                 
             }

@@ -9,9 +9,9 @@ import UIKit
 
 class SingleItemViewConfigurator {
     
-    func build() -> SingleItemViewControllerProtocol{
+    func build(id: Int) -> UIViewController{
         let singleItemVC = SingleItemViewController()
-        let singleItemVM = SingleItemViewModel()
+        let singleItemVM = SingleItemViewModel(index: id)
         
         singleItemVC.vm = singleItemVM
         

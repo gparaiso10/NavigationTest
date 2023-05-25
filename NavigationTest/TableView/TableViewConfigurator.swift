@@ -19,19 +19,16 @@ class TableViewConfigurator{
         let delegate = TableViewDelegate()
         let coordinator = TableViewCoordinator()
         
-        let singleVC = SingleItemViewConfigurator().build()
-        
         vc.viewModel = vm
         vc.delegate = delegate
         vc.dataSource = dataSource
         
+        vm.coordinator = coordinator
+        
         dataSource.viewModel = vm
         delegate.viewModel = vm
         coordinator.viewController = vc
-        delegate.viewCoordinator = coordinator
         
-        delegate.singleItemViewModel = singleVC.vm
-        coordinator.singleItemViewController = singleVC as? UIViewController
         
         return vc
     }

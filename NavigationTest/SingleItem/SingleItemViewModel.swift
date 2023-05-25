@@ -9,7 +9,7 @@ import UIKit
 
 protocol SingleItemViewModelProtocol {
     var itemSingular: ItemSingular? {get set}
-    func bindSingleItem(index: Int)
+    //func bindSingleItem(index: Int)
     var reloadData: () -> Void {get set}
 }
 
@@ -17,7 +17,7 @@ class SingleItemViewModel: SingleItemViewModelProtocol{
     
     var itemSingular: ItemSingular?
     
-    func bindSingleItem(index: Int){
+    init(index: Int){
             
             let network = Network(
                 host: "cf5dxst1y4.execute-api.eu-west-1.amazonaws.com",

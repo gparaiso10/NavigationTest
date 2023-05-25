@@ -9,17 +9,17 @@ import UIKit
 
 protocol TableViewCoordinatorProtocol {
     var viewController: UIViewController! {get set}
-    var singleItemViewController: UIViewController! {get set}
-    func pushSingleItemView()
+    func pushSingleItemView(id: Int)
 }
 
 class TableViewCoordinator: UIViewController, TableViewCoordinatorProtocol {
     
     weak var viewController: UIViewController!
-    var singleItemViewController: UIViewController!
     
-    func pushSingleItemView(){
-        viewController.navigationController?.pushViewController(singleItemViewController, animated: true)
+    func pushSingleItemView(id: Int){
+        let singleController = SingleItemViewConfigurator().build(id: id)
+        
+        viewController.navigationController?.pushViewController(singleController, animated: true)
     }
     
 }

@@ -11,20 +11,18 @@ class TableViewDataSource: NSObject, UITableViewDataSource{
         
         var viewModel: TableViewModelProtocol!
     
-    
         func register(tableView: UITableView){
             tableView.register(ExampleCell.self, forCellReuseIdentifier: "cell")
         }
 
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            viewModel.itemsArray.count
+            viewModel.cells.count
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ExampleCell
-            
-            cell.configure(model: viewModel.itemsArray[indexPath.row])
-            
+
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ExampleCell
+            cell.configure(viewModel: viewModel.cells[indexPath.row])
             return cell
         }
 }
